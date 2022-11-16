@@ -1,12 +1,11 @@
-<div id="<%= dom_id group %>">
-  <p>
-    <strong>Name:</strong>
-    <%= group.name %>
-  </p>
-
-  <p>
-    <strong>Icon:</strong>
-    <%= group.icon %>
-  </p>
-
+<div class="card d-flex flex-row align-items-center mb-4 text-dark">
+    <img src="<%= group.icon %>", style='height:50px;width:50px;' alt="icon">
+    <div class="d-flex flex-column p-2 justify-content-center">
+        <h5>
+            <%= group.name.capitalize%>
+        </h5>
+        <h6>
+            <%= group.created_at.to_time.strftime('%B %e at %l:%M %p') %>
+        </h6>
+    </div>
 </div>

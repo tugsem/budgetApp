@@ -1,4 +1,6 @@
-<%= form_with(model: group) do |form| %>
+<div class="container m-5 p-3">
+<h1>New category</h1>
+<%= bootstrap_form_with(model: group) do |form| %>
   <% if group.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
@@ -12,12 +14,10 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :icon, style: "display: block" %>
     <%= form.text_field :icon %>
   </div>
 
@@ -25,3 +25,7 @@
     <%= form.submit %>
   </div>
 <% end %>
+<div>
+  <%= link_to "Back to groups", groups_path %>
+</div>
+</div>

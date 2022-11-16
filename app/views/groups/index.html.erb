@@ -1,14 +1,15 @@
-<p style="color: green"><%= notice %></p>
+<% if current_user.nil? %>
+  <%= render 'layouts/splash_screen' %>
+<% else %>
+  <%= render 'layouts/navbar' %>
+  <div class="container mb-5">
+    <h1>Categories</h1>
+    <%= link_to "Add a new category", new_group_path, class: "btn btn-primary my-2" %>
 
-<h1>Groups</h1>
-
-<div id="groups">
-  <% @groups.each do |group| %>
-    <%= render group %>
-    <p>
-      <%= link_to "Show this group", group %>
-    </p>
+    <% @groups.each do |group| %>
+      <%= link_to group_path(group.id) do %>
+          <%= render group, class: "text-decoration-none" %>
+      <% end %>
   <% end %>
-</div>
-
-<%= link_to "New group", new_group_path %>
+  </div>
+<% end %>
