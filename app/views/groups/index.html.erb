@@ -6,7 +6,7 @@
     <h1>Categories</h1>
     <%= link_to "Add a new category", new_group_path, class: "btn btn-primary my-2" %>
 
-    <% @groups.each do |group| %>
+    <% current_user.groups.includes([:entities]).each do |group| %>
       <%= link_to group_path(group.id) do %>
         <%= render group, class: "text-decoration-none" %>
     <% end %>

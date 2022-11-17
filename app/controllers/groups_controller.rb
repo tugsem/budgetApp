@@ -1,9 +1,6 @@
 class GroupsController < ApplicationController
 
-  def index
-    #@groups = current_user.groups.includes([:entities])
-    @groups = Group.all
-  end
+  def index;end
 
   def show
     @group = Group.find(params[:id])
@@ -11,8 +8,6 @@ class GroupsController < ApplicationController
   end
 
   def new;end
-
-  def edit;end
 
   def create
     @user = current_user
