@@ -1,11 +1,16 @@
-<div class="card d-flex flex-row align-items-center mb-4 text-dark">
+<div class="card d-flex flex-row align-items-center justify-content-between mb-4 p-3 text-dark">
+    <div class="d-flex align-items-center">
     <img src="<%= group.icon %>", style='height:50px;width:50px;' alt="icon">
     <div class="d-flex flex-column p-2 justify-content-center">
-        <h5>
+        <h2>
             <%= group.name.capitalize%>
-        </h5>
-        <h6>
+        </h2>
+        <h3>
             <%= group.created_at.to_time.strftime('%B %e at %l:%M %p') %>
-        </h6>
+        </h3>
+    </div>
+    </div>
+    <div class="totalVal">
+    <h4><%= getTotalValue(group) %>$</h4>
     </div>
 </div>

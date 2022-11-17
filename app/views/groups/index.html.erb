@@ -8,8 +8,8 @@
 
     <% @groups.each do |group| %>
       <%= link_to group_path(group.id) do %>
-          <%= render group, class: "text-decoration-none" %>
-      <% end %>
+        <%= render group, class: "text-decoration-none" %>
+    <% end %>
   <% end %>
   </div>
 <% end %>

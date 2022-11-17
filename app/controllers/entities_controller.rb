@@ -1,35 +1,32 @@
 class EntitiesController < ApplicationController
-  before_action :set_entity, only: %i[ show edit update destroy ]
+  #before_action :set_entity, only: %i[ show edit update destroy ]
 
-  # GET /entities or /entities.json
   def index
     @entities = Entity.all
   end
 
-  # GET /entities/1 or /entities/1.json
   def show
   end
 
-  # GET /entities/new
   def new
-    @group = Group.find(params[:group_id])
+    @user = current_user
     @entity = Entity.new
   end
 
-  # GET /entities/1/edit
   def edit
   end
 
   # POST /entities or /entities.json
   def create
     @user = current_user
-    @group = Group.find(params[:group_id])
-    @entity = @group.entities.new(entity_params)
+    @group = Group.where(:id => params[:entity][:group_id])
+    @entity = Entity.new(entity_params)
     @entity.user_id = @user.id
+    @entity.groups.push(@group)
 
     respond_to do |format|
       if @entity.save
-        format.html { redirect_to group_url(@group), notice: "Entity was successfully created." }
+        format.html { redirect_to groups_url, notice: "Entity was successfully created." }
         format.json { render :show, status: :created, location: @entity }
       else
         format.html { render :new, status: :unprocessable_entity }

@@ -1,33 +1,18 @@
 <div class="container">
-<%= bootstrap_form_with(model: entity, method: :post, url: new_group_entity_path(@group)) do |form| %>
   <h1>Add new transaction</h1>
-  <% if entity.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(entity.errors.count, "error") %> prohibited this entity from being saved:</h2>
+  <%= bootstrap_form_with(model: entity, method: :post, url: new_entity_path) do |form| %>
 
-      <ul>
-        <% entity.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+      <%= form.text_field :name %>
+
+      <%= form.text_field :amount %>
+
+    <%= form.collection_select(:group_id, @user.groups.all, :id, :name, class:"w-full px-4 py-3 border", label: 'Select a category') %>
+
+      <%= form.submit %>
+
   <% end %>
 
-
-    <%= form.text_field :name %>
-
-
-
-    <%= form.text_field :amount %>
-
-   <%= form.collection_select(:group_id, Group.all, :id, :name, class:"w-full px-4 py-3 border", label: 'Select a category') %>
-
-    <%= form.submit %>
-
-
-<% end %>
-
-<div>
-  <%= link_to "Back to categories", groups_path %>
-</div>
+  <div>
+    <%= link_to "Back to categories", groups_path %>
+  </div>
 </div>

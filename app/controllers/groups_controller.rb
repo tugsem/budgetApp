@@ -1,8 +1,8 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i[ show edit update destroy ]
+  #before_action :set_group, only: %i[ show edit update destroy ]
 
   def index
-    @groups = Group.all
+    @groups = current_user.groups.includes([:entities])
   end
 
   def show
@@ -17,6 +17,7 @@ class GroupsController < ApplicationController
   def create
     @user = current_user
     @group = @user.groups.new(group_params)
+    @group.user_id = @user.id
 
     respond_to do |format|
       if @group.save
