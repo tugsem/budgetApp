@@ -1,5 +1,5 @@
 module GroupHelper
-  def getTotalValue(group)
+  def get_total_value(group)
     sum = 0
     group.entities.each do |entity|
       sum += entity.amount
