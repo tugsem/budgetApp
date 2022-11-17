@@ -6,7 +6,9 @@ class GroupsController < ApplicationController
     @entities = @group.entities.order(created_at: :desc)
   end
 
-  def new; end
+  def new
+    @group = Group.new
+  end
 
   def create
     @user = current_user
