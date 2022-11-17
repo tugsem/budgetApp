@@ -1,8 +1,8 @@
 class GroupsController < ApplicationController
-  #before_action :set_group, only: %i[ show edit update destroy ]
 
   def index
-    @groups = current_user.groups.includes([:entities])
+    #@groups = current_user.groups.includes([:entities])
+    @groups = Group.all
   end
 
   def show
@@ -52,9 +52,6 @@ class GroupsController < ApplicationController
   end
 
   private
-    def set_group
-      @group = Group.find(params[:id])
-    end
 
     def group_params
       params.require(:group).permit(:name, :icon, :user_id)
