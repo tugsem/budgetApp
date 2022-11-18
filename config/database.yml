@@ -1,0 +1,27 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: budgetApp_development
+  username: postgres
+  password: '0000'
+  host: localhost
+  port: 5432
+
+test:
+  <<: *default
+  database: budgetApp_test
+  username: postgres
+  password: '0000'
+  host: localhost
+  port: 5432
+
+production:
+  <<: *default
+  database: budgetApp_production
+  username: budgetApp
+  password: <%= ENV["BUDGETAPP_DATABASE_PASSWORD"] %>
