@@ -1,7 +1,7 @@
 @import "bootstrap";
 @import "rails_bootstrap_forms";
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -25,9 +25,11 @@ body {
 .user-options {
   display: none;
 }
-.navbar{
-   background-color: #3778c2;
+
+.navbar {
+  background-color: #3778c2;
 }
+
 .navbar-toggler {
   position: absolute;
   right: 10px;
@@ -35,7 +37,7 @@ body {
 
 .navbar-link {
   text-decoration: none;
-  color:rgba(255, 255, 255, 0.767);
+  color: rgba(255, 255, 255, 0.767);
 }
 
 .logout {
@@ -43,8 +45,8 @@ body {
   border: none;
 }
 
-@media only screen and (min-width: 992px){
+@media only screen and (min-width: 992px) {
   .user-options {
-     display: block;
+    display: block;
   }
 }
