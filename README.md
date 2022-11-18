@@ -8,7 +8,7 @@ https://github.com/microverseinc/curriculum-rails/raw/main/capstone/images/erd_d
 
 ## Live Link
 
-coming soon..
+https://budgetapp-develop-vyt6uzxroo7n.herokuapp.com
 
 ## Built With
 
