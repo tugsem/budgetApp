@@ -6,10 +6,6 @@
 
 https://github.com/microverseinc/curriculum-rails/raw/main/capstone/images/erd_diagram.png
 
-## Live Link
-
-https://you-budget.herokuapp.com
-
 ## Built With
 
 - Ruby on Rails
